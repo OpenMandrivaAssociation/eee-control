@@ -29,7 +29,7 @@ Eee PC hardware control and configuration
  900/900A/900SD/900HD, 901, 904HA/904HD, 1000/1000H/1000HD/1000HE, 1002HA
 
 %prep
-%setup -q -n %{dirname}
+%setup -q
 sed -i -e 's,Categories=Application;System;,Categories=GTK;System;Monitor;X-MandrivaLinux-CrossDesktop;,g' data/eee-control-tray.desktop
 # set default to i2c since mandriva default kernel does not have eee_acpi
 # module
