@@ -16,6 +16,7 @@ Requires:	gnome-python-gconf
 Requires:	python-notify
 Requires:	python-dbus
 BuildRequires:	python-devel
+BuildRequires:	imagemagick
 BuildRoot:	%{_tmppath}/%name-%version
 
 %description
