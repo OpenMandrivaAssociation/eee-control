@@ -15,7 +15,7 @@ Requires:	python-smbus
 Requires:	gnome-python-gconf
 Requires:	python-notify
 Requires:	python-dbus
-BuildRequires:	python
+BuildRequires:	python-devel
 BuildRoot:	%{_tmppath}/%name-%version
 
 %description
