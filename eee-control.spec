@@ -5,15 +5,15 @@
 Summary:	Eee PC hardware control and configuration
 Name:		eee-control
 Version:	0.9.4
-Release:	%mkrel 1
+Release:	%mkrel 2
 Source0:	http://greg.geekmind.org/eee-control/src/%{name}-%{version}.tar.gz
 Source1:	eee-control.init
 Source2:	eee-control-fi.po
-Patch0:		eee-control_models.patch
-Patch1:		eee-control_actions.patch
 Patch2:		eee-control-daemon_no-powerdev-group.patch
 Patch3:		eee-control_fix-setup.patch
 Patch4:		eee-control_fix_she_config_location.patch
+Patch5:		eee-control_add-fi-lang.patch
+Patch6:		eee-control_use_ath5k.patch
 License:	MIT
 Group:		System/Configuration/Hardware
 URL:		http://greg.geekmind.org/eee-control/
@@ -40,11 +40,11 @@ Compatible with: ASUS Eee PC 700/700SE, 701/701SD, 702, 900/900A/900SD/900HD,
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
 %patch2 -p0
 %patch3 -p0
 %patch4 -p1
+%patch5 -p0
+%patch6 -p1
 
 # fix langs and install fi language file
 %{__cp} %{SOURCE2} locale/fi.po
@@ -62,7 +62,7 @@ sed -i -e 's,Categories=Application;System;,Categories=GTK;System;Monitor;X-Mand
 	-O1 \
 	--prefix=%{_prefix} \
 	--root=%{buildroot} \
-	--skip-build \
+	--skip-build
 
 # Generate and install 32x32 and 16x16 icons.
 %{__mkdir} -p %{buildroot}%{_iconsdir}/hicolor/{64x64,32x32,24x24,16x16}/apps
@@ -118,5 +118,5 @@ convert -scale 16 data/eee-icon.png %{buildroot}%{_iconsdir}/hicolor/16x16/apps/
 %{_datadir}/applications/%{name}-tray.desktop
 %{_datadir}/%{name}
 %{_iconsdir}/hicolor/*/apps/*
-%{py_puresitedir}/EeeControl
-%{py_puresitedir}/eee_control-%{fversion}-py%{pyver}.egg-info
+%{py_platsitedir}/EeeControl
+%{py_platsitedir}/eee_control-%{fversion}-py%{pyver}.egg-info
