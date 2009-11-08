@@ -5,7 +5,7 @@
 Summary:	Eee PC hardware control and configuration
 Name:		eee-control
 Version:	0.9.4
-Release:	%mkrel 2
+Release:	%mkrel 3
 Source0:	http://greg.geekmind.org/eee-control/src/%{name}-%{version}.tar.gz
 Source1:	eee-control.init
 Source2:	eee-control-fi.po
@@ -25,6 +25,7 @@ Requires:	python-smbus
 Requires:	gnome-python-gconf
 Requires:	python-notify
 Requires:	python-dbus
+Requires:	xset
 Requires(post):         rpm-helper
 Requires(preun):        rpm-helper
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
