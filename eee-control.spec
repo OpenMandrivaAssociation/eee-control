@@ -5,7 +5,7 @@
 Summary:	Eee PC hardware control and configuration
 Name:		eee-control
 Version:	0.9.4
-Release:	%mkrel 3
+Release:	%mkrel 4
 Source0:	http://greg.geekmind.org/eee-control/src/%{name}-%{version}.tar.gz
 Source1:	eee-control.init
 Source2:	eee-control-fi.po
@@ -14,6 +14,7 @@ Patch3:		eee-control_fix-setup.patch
 Patch4:		eee-control_fix_she_config_location.patch
 Patch5:		eee-control_add-fi-lang.patch
 Patch6:		eee-control_use_ath5k.patch
+Patch7:		eee-control-brightness_fix.patch
 License:	MIT
 Group:		System/Configuration/Hardware
 URL:		http://greg.geekmind.org/eee-control/
@@ -46,6 +47,7 @@ Compatible with: ASUS Eee PC 700/700SE, 701/701SD, 702, 900/900A/900SD/900HD,
 %patch4 -p1
 %patch5 -p0
 %patch6 -p1
+%patch7 -p1
 
 # fix langs and install fi language file
 %{__cp} %{SOURCE2} locale/fi.po
@@ -71,7 +73,7 @@ convert -scale 32 data/eee-icon.png %{buildroot}%{_iconsdir}/hicolor/32x32/apps/
 convert -scale 16 data/eee-icon.png %{buildroot}%{_iconsdir}/hicolor/16x16/apps/%{name}.png
 
 # Install some stuff manually because the build process can't.
-%{__install} -D -m644 data/eee-icon.png %{buildroot}%{_iconsdir}/hicolor/64x64/apps/
+%{__install} -D -m644 data/eee-icon.png %{buildroot}%{_iconsdir}/hicolor/64x64/apps/%{name}.png
 %{__install} -D -m644 data/eee-icon-small.png %{buildroot}%{_iconsdir}/hicolor/24x24/apps/%{name}.png
 
 # Initfile
@@ -79,7 +81,7 @@ convert -scale 16 data/eee-icon.png %{buildroot}%{_iconsdir}/hicolor/16x16/apps/
 %{__install} -m 755 %{SOURCE1} %{buildroot}%{_initrddir}/%{name}
 
 # Install config file
-%{__cp} %{buildroot}%{_datadir}/eee-control/eee-control.conf %{buildroot}%{_sysconfdir}/eee-control.conf
+%{__mv} %{buildroot}%{_datadir}/%{name}/%{name}.conf %{buildroot}%{_sysconfdir}/%{name}.conf
 
 # Not needed
 %{__rm} -rf %{buildroot}%{_bindir}/eee-control-setup.sh
