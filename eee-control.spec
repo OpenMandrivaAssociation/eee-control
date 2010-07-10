@@ -4,14 +4,16 @@
 
 Summary:	Eee PC hardware control and configuration
 Name:		eee-control
-Version:	0.9.4
-Release:	%mkrel 4
-Source0:	http://greg.geekmind.org/eee-control/src/%{name}-%{version}.tar.gz
+Version:	0.9.6
+Release:	%mkrel 1
+# Source code from git repository:
+# git clone git://greg.geekmind.org/eee-control.git && cd eee-control && git checkout 0.9.6 && \
+# cd .. && tar zcvf eee-control-0.9.6.tar.gz --exclude=.git eee-control
+Source0:	%{name}-%{version}.tar.gz
 Source1:	eee-control.init
 Source2:	eee-control-fi.po
 Patch2:		eee-control-daemon_no-powerdev-group.patch
 Patch3:		eee-control_fix-setup.patch
-Patch4:		eee-control_fix_she_config_location.patch
 Patch5:		eee-control_add-fi-lang.patch
 Patch6:		eee-control_use_ath5k.patch
 Patch7:		eee-control-brightness_fix.patch
@@ -27,8 +29,8 @@ Requires:	gnome-python-gconf
 Requires:	python-notify
 Requires:	python-dbus
 Requires:	xset
-Requires(post):         rpm-helper
-Requires(preun):        rpm-helper
+Requires(post):	rpm-helper
+Requires(preun):	rpm-helper
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
@@ -38,13 +40,12 @@ a bigger LCD brightness range, program hotkeys and more. It all does that
 with a clean client-server-like architecture and a nice GUI.
 
 Compatible with: ASUS Eee PC 700/700SE, 701/701SD, 702, 900/900A/900SD/900HD,
-901, 904HA/904HD, 1000/1000H/1000HD/1000HE, 1002HA
+901, 904HA/904HD, 1000/1000H/1000HD/1000HE, 1002HA.
 
 %prep
-%setup -q
+%setup -q -n %{name}
 %patch2 -p0
 %patch3 -p0
-%patch4 -p1
 %patch5 -p0
 %patch6 -p1
 %patch7 -p1
@@ -86,9 +87,6 @@ convert -scale 16 data/eee-icon.png %{buildroot}%{_iconsdir}/hicolor/16x16/apps/
 # Not needed
 %{__rm} -rf %{buildroot}%{_bindir}/eee-control-setup.sh
 
-# Kernel version >2.6.30 supports SHE, dkms module not needed
-%{__rm} -rf %{buildroot}%{_usrsrc}/eeepc-laptop-20090415/
-
 %find_lang %{name}
 
 %post
@@ -112,7 +110,7 @@ convert -scale 16 data/eee-icon.png %{buildroot}%{_iconsdir}/hicolor/16x16/apps/
 %files -f %{name}.lang
 %defattr(-,root,root)
 %doc doc/NOTES doc/README doc/901-ACPI.txt
-%attr(755,root,root) %{_initrddir}/%{name}
+%{_initrddir}/%{name}
 %config(noreplace) %{_sysconfdir}/%{name}.conf
 %{_sysconfdir}/dbus-1/system.d/eee-control-daemon.conf
 %{_sysconfdir}/xdg/autostart/eee-control-tray.desktop
