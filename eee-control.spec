@@ -5,7 +5,7 @@
 Summary:	Eee PC hardware control and configuration
 Name:		eee-control
 Version:	0.9.6
-Release:	%mkrel 1
+Release:	%mkrel 2
 # Source code from git repository:
 # git clone git://greg.geekmind.org/eee-control.git && cd eee-control && git checkout 0.9.6 && \
 # cd .. && tar zcvf eee-control-0.9.6.tar.gz --exclude=.git eee-control
@@ -23,7 +23,7 @@ URL:		http://greg.geekmind.org/eee-control/
 # Asus Eee PC comes with x86_32 CPUs
 ExclusiveArch:	%ix86
 BuildRequires:	imagemagick
-%py_requires -d
+BuildRequires:	python-devel
 Requires:	python-smbus
 Requires:	gnome-python-gconf
 Requires:	python-notify
@@ -91,18 +91,10 @@ convert -scale 16 data/eee-icon.png %{buildroot}%{_iconsdir}/hicolor/16x16/apps/
 
 %post
 %_post_service eee-control
-%if %mdkversion < 200900
-%{update_menu}
-%{update_icon_cache hicolor}
-%endif
 
 %preun
 %_preun_service eee-control
 %preun_uninstall_gconf_schemas %{name}
-%if %mdkversion < 200900 
-%{clean_menus}
-%{clean_icon_cache hicolor}
-%endif
 
 %clean
 %{__rm} -rf %{buildroot}
