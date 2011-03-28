@@ -5,7 +5,7 @@
 Summary:	Eee PC hardware control and configuration
 Name:		eee-control
 Version:	0.9.6
-Release:	%mkrel 2
+Release:	%mkrel 3
 # Source code from git repository:
 # git clone git://greg.geekmind.org/eee-control.git && cd eee-control && git checkout 0.9.6 && \
 # cd .. && tar zcvf eee-control-0.9.6.tar.gz --exclude=.git eee-control
@@ -27,6 +27,8 @@ BuildRequires:	python-devel
 Requires:	python-smbus
 Requires:	gnome-python-gconf
 Requires:	python-notify
+Requires:	python-gobject
+Requires:	pygtk2.0
 Requires:	python-dbus
 Requires:	xset
 Requires(post):	rpm-helper
