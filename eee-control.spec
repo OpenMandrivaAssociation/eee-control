@@ -5,7 +5,7 @@
 Summary:	Eee PC hardware control and configuration
 Name:		eee-control
 Version:	0.9.6
-Release:	%mkrel 3
+Release:	%mkrel 4
 # Source code from git repository:
 # git clone git://greg.geekmind.org/eee-control.git && cd eee-control && git checkout 0.9.6 && \
 # cd .. && tar zcvf eee-control-0.9.6.tar.gz --exclude=.git eee-control
@@ -17,6 +17,7 @@ Patch3:		eee-control_fix-setup.patch
 Patch5:		eee-control_add-fi-lang.patch
 Patch6:		eee-control_use_ath5k.patch
 Patch7:		eee-control-brightness_fix.patch
+Patch8:		eee-control-0.9.6-pynotify.patch
 License:	MIT
 Group:		System/Configuration/Hardware
 URL:		http://greg.geekmind.org/eee-control/
@@ -51,6 +52,7 @@ Compatible with: ASUS Eee PC 700/700SE, 701/701SD, 702, 900/900A/900SD/900HD,
 %patch5 -p0
 %patch6 -p1
 %patch7 -p1
+%patch8 -p0
 
 # fix langs and install fi language file
 %{__cp} %{SOURCE2} locale/fi.po
