@@ -1,0 +1,12 @@
+diff -p -up ./setup.py.orig ./setup.py
+--- ./setup.py.orig	2010-05-30 10:23:25.000000000 +0300
++++ ./setup.py	2010-05-30 10:25:13.621198699 +0300
+@@ -28,6 +28,7 @@ setup(  name="eee-control",
+             ("share/locale/nb/LC_MESSAGES", ["locale/nb/LC_MESSAGES/eee-control.mo"]),
+             ("share/locale/fa/LC_MESSAGES", ["locale/fa/LC_MESSAGES/eee-control.mo"]),
+             ("share/locale/sv/LC_MESSAGES", ["locale/sv/LC_MESSAGES/eee-control.mo"]),
++            ("share/locale/fi/LC_MESSAGES", ["locale/fi/LC_MESSAGES/eee-control.mo"]),
+         ],
+ 	ext_modules=[Extension('EeeControl.ioport', sources=["ioport/ioport.c"])],
+ )
+

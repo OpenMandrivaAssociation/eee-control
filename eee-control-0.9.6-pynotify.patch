@@ -1,0 +1,11 @@
+--- ./EeeControl/tray.py.orig	2011-05-13 17:17:14.000000000 +0200
++++ ./EeeControl/tray.py	2011-05-13 17:17:31.000000000 +0200
+@@ -281,7 +281,7 @@ class EeeControlTray:
+         pynotify.init("eee-control")
+         self.notify = pynotify.Notification("(empty)")
+         self.notify.set_urgency(pynotify.URGENCY_LOW)
+-        self.notify.attach_to_status_icon(self.icon)
++#        self.notify.attach_to_status_icon(self.icon)
+         
+         self.bus.add_signal_receiver(self.wifi_notify, dbus_interface="org.eee.Eee", signal_name="wifi_changed")
+         self.bus.add_signal_receiver(self.touchpad_notify, dbus_interface="org.eee.Eee", signal_name="touchpad_changed")

@@ -1,0 +1,13 @@
+diff -p -up ./setup.py.orig ./setup.py
+--- ./setup.py.orig	2009-08-09 05:42:53.000000000 +0300
++++ ./setup.py	2009-08-09 11:12:24.516591963 +0300
+@@ -15,7 +15,7 @@ setup(  name="eee-control",
+             ("share/eee-control", ["data/eee-control.conf"]),
+             ("share/applications", ["data/eee-control-tray.desktop"]),
+             ("../etc/xdg/autostart", ["data/eee-control-tray.desktop"]),
+-            ("share/gconf/schemas", ["data/eee-control.schemas"]),
++            ("../etc/gconf/schemas", ["data/eee-control.schemas"]),
+             ("share/locale/de/LC_MESSAGES", ["locale/de/LC_MESSAGES/eee-control.mo"]),
+             ("share/locale/hu/LC_MESSAGES", ["locale/hu/LC_MESSAGES/eee-control.mo"]),
+             ("share/locale/fr/LC_MESSAGES", ["locale/fr/LC_MESSAGES/eee-control.mo"]),
+

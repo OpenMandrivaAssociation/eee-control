@@ -1,0 +1,25 @@
+diff -p -up ./EeeControl/actions.py.orig ./EeeControl/actions.py
+--- ./EeeControl/actions.py.orig	2009-12-30 11:14:31.435484519 +0200
++++ ./EeeControl/actions.py	2009-12-30 11:15:23.067735923 +0200
+@@ -248,6 +248,7 @@ class EeeActions(dbus.service.Object):
+ 
+         f = open(self.brn_path)
+         l = f.readline()
++        if l.strip() == "": l = "0"
+         brn = int(l.strip()) + 0x20
+         f.close()
+         log("brightness state is %x" %brn)
+diff -p -up ./eee-control-daemon.orig ./eee-control-daemon
+--- ./eee-control-daemon.orig	2009-12-30 11:13:43.450758476 +0200
++++ ./eee-control-daemon	2009-12-30 11:14:15.713489241 +0200
+@@ -82,6 +82,10 @@ if __name__ == "__main__":
+ 
+     if os.path.exists(os.path.join(acpi_base, "brn")):
+         brn_path = os.path.join(acpi_base, "brn")
++    elif os.path.exists("/sys/class/backlight/acpi_video0/brightness"):
++        brn_path = "/sys/class/backlight/acpi_video0/brightness"
++    elif os.path.exists("/sys/class/backlight/psblvds/brightness"):
++        brn_path = "/sys/class/backlight/psblvds/brightness"
+     elif os.path.exists("/sys/class/backlight/eeepc/brightness"):
+         brn_path = "/sys/class/backlight/eeepc/brightness"
+     else:

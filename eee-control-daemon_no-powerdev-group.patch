@@ -1,0 +1,16 @@
+diff -p -up ./data/eee-control-daemon.conf.wly ./data/eee-control-daemon.conf
+--- ./data/eee-control-daemon.conf.wly	2009-05-08 18:34:33.490147186 -0400
++++ ./data/eee-control-daemon.conf	2009-05-08 18:34:24.570146912 -0400
+@@ -11,11 +11,6 @@
+                 <allow send_destination="org.eee.Eee"/>
+                 <allow send_interface="org.eee.Eee"/>
+         </policy>
+-        <!-- Debian still needs group-based permissions -->
+-        <policy group="powerdev">
+-                <allow send_destination="org.eee.Eee"/>
+-                <allow send_interface="org.eee.Eee"/>
+-        </policy>
+         <policy context="default">
+                 <deny own="org.eee.Eee"/>
+                 <deny send_destination="org.eee.Eee"/>
+

@@ -1,0 +1,15 @@
+diff -p -up ./EeeControl/models.py.orig ./EeeControl/models.py
+--- ./EeeControl/models.py.orig	2009-09-11 10:29:27.000000000 +0200
++++ ./EeeControl/models.py	2009-09-11 10:29:50.000000000 +0200
+@@ -43,8 +43,8 @@ class EeePc700:
+ 
+         # FIXME: Check if we're using the ath5k module on Kernel 2.6.27 or
+         # later. If set self.wlan_module="ath5k", self.wlan_dev="wlan0"
+-        self.wlan_module = "ath_pci"
+-        self.wlan_dev = "ath0"
++        self.wlan_module = "ath5k"
++        self.wlan_dev = "wlan0"
+ 
+     def wifi_off(self):
+         # rfkill is still very flaky, at least with rt2860sta
+
