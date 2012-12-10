@@ -5,7 +5,7 @@
 Summary:	Eee PC hardware control and configuration
 Name:		eee-control
 Version:	0.9.6
-Release:	%mkrel 4
+Release:	5
 # Source code from git repository:
 # git clone git://greg.geekmind.org/eee-control.git && cd eee-control && git checkout 0.9.6 && \
 # cd .. && tar zcvf eee-control-0.9.6.tar.gz --exclude=.git eee-control
@@ -34,7 +34,6 @@ Requires:	python-dbus
 Requires:	xset
 Requires(post):	rpm-helper
 Requires(preun):	rpm-helper
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 Eee-control can switch hardware of your Eee PC on and off (WiFi, Bluetooth,
@@ -65,7 +64,6 @@ sed -i -e 's,Categories=Application;System;,Categories=GTK;System;Monitor;X-Mand
 %{__python} setup.py build
 
 %install
-%{__rm} -rf %{buildroot}
 %{__python} setup.py install \
 	-O1 \
 	--prefix=%{_prefix} \
@@ -100,9 +98,6 @@ convert -scale 16 data/eee-icon.png %{buildroot}%{_iconsdir}/hicolor/16x16/apps/
 %_preun_service eee-control
 %preun_uninstall_gconf_schemas %{name}
 
-%clean
-%{__rm} -rf %{buildroot}
-
 %files -f %{name}.lang
 %defattr(-,root,root)
 %doc doc/NOTES doc/README doc/901-ACPI.txt
@@ -116,4 +111,63 @@ convert -scale 16 data/eee-icon.png %{buildroot}%{_iconsdir}/hicolor/16x16/apps/
 %{_datadir}/%{name}
 %{_iconsdir}/hicolor/*/apps/*
 %{py_platsitedir}/EeeControl
-%{py_platsitedir}/eee_control-%{fversion}-py%{pyver}.egg-info
+%{py_platsitedir}/eee_control-%{fversion}-py%{py_ver}.egg-info
+
+
+%changelog
+* Fri May 13 2011 Jani Välimaa <wally@mandriva.org> 0.9.6-4mdv2011.0
++ Revision: 674331
+- add patch to workaround missing attach_to_status_icon in latest python-notify
+
+* Mon Mar 28 2011 Sergio Rafael Lemke <sergio@mandriva.com> 0.9.6-3
++ Revision: 648704
+- Added pygtk2.0 and python-gobject as requires
+
+* Sat Oct 30 2010 Jani Välimaa <wally@mandriva.org> 0.9.6-2mdv2011.0
++ Revision: 590551
+- clean spec; drop support for old mdv releases
+- drop py_requires macro
+- rebuild for python 2.7
+
+* Sat Jul 10 2010 Jani Välimaa <wally@mandriva.org> 0.9.6-1mdv2011.0
++ Revision: 550021
+- new version 0.9.6
+- drop P4, applied upstream
+- rediff P5
+
+* Wed Dec 30 2009 Jani Välimaa <wally@mandriva.org> 0.9.4-4mdv2010.1
++ Revision: 483863
+- fix icons
+- install only one config file
+- add Patch7:
+  o add brightness control file locations for other models than 901
+  o don't fail if no brightness control file found
+
+* Sun Nov 08 2009 Jani Välimaa <wally@mandriva.org> 0.9.4-3mdv2010.1
++ Revision: 462975
+- require xset (for turning display off with hotkeys)
+
+* Fri Sep 11 2009 Jani Välimaa <wally@mandriva.org> 0.9.4-2mdv2010.0
++ Revision: 438175
+- Remove P0 & P1 as eee 901 freezes after Fn+F2
+- Add P5 (really add fi translation)
+- Split ath5k part from P0 to own patch P6
+
+* Mon Sep 07 2009 Jani Välimaa <wally@mandriva.org> 0.9.4-1mdv2010.0
++ Revision: 432754
+- new version 0.9.4
+- P0: use ath5k instead of madwifi
+- P0 & P1: let kernel handle wlan on/off (Fn+F2)
+- P2: no powerdev group in Mandriva
+- P3: fix gconf schema location
+- P4: fix SHE control file location (for kernel 2.6.31)
+- added fi language
+- removed fsb-method fix (kernel >2.6.30 supports SHE method)
+- don't start service after installation
+
+  + Guillaume Rousse <guillomovitch@mandriva.org>
+    - import eee-control
+
+
+* Wed Aug 19 2009 Guillaume Rousse <guillomovitch@mandriva.org> 0.9.3-1mdv2010.0
+- initial mdv release, contributed by Joseph Wang <joequant@gmail.com>

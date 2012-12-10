@@ -1,0 +1,236 @@
+# finnish tranlation of eee-control.
+#
+# Jani Välimaa <jani.valimaa@gmail.com>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: eee-control\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-04-23 15:27+0300\n"
+"PO-Revision-Date: 2009-04-23 16:03+0300\n"
+"Last-Translator: Jani Välimaa <jani.valimaa@gmail.com>\n"
+"Language-Team: Finnish <fi@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 0.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../EeeControl/tray.py:76
+#, python-format
+msgid "Error communicating with eee-control-daemon: %s"
+msgstr "Virhe kommunikoitaessa taustaprosessin kanssa: %s"
+
+#: ../EeeControl/tray.py:108 ../EeeControl/tray.py:518
+msgid "Cannot unmount card reader!"
+msgstr "Kortinlukijaa ei voida irrottaa!"
+
+#: ../EeeControl/tray.py:142 ../EeeControl/tray.py:634
+msgid "WiFi"
+msgstr "WLAN"
+
+#: ../EeeControl/tray.py:144 ../EeeControl/tray.py:636
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: ../EeeControl/tray.py:146 ../EeeControl/tray.py:638
+msgid "Camera"
+msgstr "Kamera"
+
+#: ../EeeControl/tray.py:148 ../EeeControl/tray.py:640
+msgid "Card Reader"
+msgstr "Kortinlukija"
+
+#: ../EeeControl/tray.py:152 ../EeeControl/tray.py:642
+msgid "Performance"
+msgstr "Suorituskyky"
+
+#: ../EeeControl/tray.py:162
+msgid "Sensors"
+msgstr "Anturit"
+
+#: ../EeeControl/tray.py:258
+#, python-format
+msgid ""
+"eee-control-tray is a utility for controlling Eee PC hardware, hotkeys and "
+"more through eee-control-daemon.\n"
+"\n"
+"Netbook Model: %s\n"
+"eee-control-daemon version: %s"
+msgstr ""
+"eee-control-tray on työkalu Eee PC:n laitteiston, pikanäppäinten ja muiden "
+"hallintaan taustaprosessin avulla.\n"
+"\n"
+"Minikannettavan malli: %s\n"
+"Taustaprosessin versio: %s"
+
+#: ../EeeControl/tray.py:302
+msgid ""
+"Unable to set up autofsb signal receiver.  Is gnome-power-manager running?"
+msgstr ""
+"Auto fsb signal receiverin asettaminen epäonnistui. Onko "
+"gnome-power-manager käynnissä?"
+
+#: ../EeeControl/tray.py:328
+msgid ""
+"Error while communicating with eee-control-daemon!\n"
+"Make sure it is running."
+msgstr ""
+"Virhe kommunikoitaessa taustaprosessin kanssa!\n"
+"Varmista, että se on käynnissä."
+
+#: ../EeeControl/tray.py:340
+msgid "eee-control-daemon connected."
+msgstr "Yhdistettiin taustaprosessiin."
+
+#: ../EeeControl/tray.py:345
+msgid "not available"
+msgstr "ei saatavilla"
+
+#: ../EeeControl/tray.py:346
+msgid "on"
+msgstr "KÄYTÖSSÄ"
+
+#: ../EeeControl/tray.py:346
+msgid "off"
+msgstr "ei käytössä"
+
+#: ../EeeControl/tray.py:347
+#, python-format
+msgid ""
+"WiFi: %s\n"
+"Bluetooth: %s\n"
+"Camera: %s\n"
+"Card Reader: %s\n"
+"Performance: %s"
+msgstr ""
+"WLAN: %s\n"
+"Bluetooth: %s\n"
+"Kamera: %s\n"
+"Kortinlukija: %s\n"
+"Suorituskyky: %s"
+
+#: ../EeeControl/tray.py:370
+msgid ""
+"Failed to set up automatic performance adjustment.  Is gnome-power-manager "
+"running?"
+msgstr ""
+"Automaattisten suorituskykyasetusten asettaminen epäonnistui. Onko gnome-"
+"power-manager käynnissä?"
+
+#: ../EeeControl/tray.py:382
+msgid ""
+"Performance adjustments were disabled because you held down CTRL while eee-"
+"control started."
+msgstr ""
+"Suorituskykyasetukset poistettiin käytöstä, koska sovellusta"
+"käynnistettäessä pidettiin CTRL-näppäintä pohjassa."
+
+#: ../EeeControl/tray.py:384
+msgid "Performance adjustments disabled"
+msgstr "Suorituskykyasetukset poistettu käytöstä"
+
+#: ../EeeControl/tray.py:407
+msgid "WiFi switched on"
+msgstr "WLAN otettiin käyttöön"
+
+#: ../EeeControl/tray.py:408
+msgid "WiFi switched off"
+msgstr "WLAN poistettiin käytöstä"
+
+#: ../EeeControl/tray.py:413
+msgid "Touchpad switched on"
+msgstr "Kosketuslevy otettiin käyttöön"
+
+#: ../EeeControl/tray.py:414
+msgid "Touchpad switched off"
+msgstr "Kosketuslevy poistettiin käytöstä"
+
+#: ../EeeControl/tray.py:423
+msgid "Bluetooth switched on"
+msgstr "Bluetooth otettiin käyttöön"
+
+#: ../EeeControl/tray.py:424
+msgid "Bluetooth switched off"
+msgstr "Bluetooth poistettiin käytöstä"
+
+#: ../EeeControl/tray.py:433
+msgid "Camera switched on"
+msgstr "Kamera otettiin käyttöön"
+
+#: ../EeeControl/tray.py:434
+msgid "Camera switched off"
+msgstr "Kamera poistettiin käytöstä"
+
+#: ../EeeControl/tray.py:443
+msgid "Card reader switched on"
+msgstr "Kortinlukija otettiin käyttöön"
+
+#: ../EeeControl/tray.py:444
+msgid "Card reader switched off"
+msgstr "Kortinlukija poistettiin käytöstä"
+
+#: ../EeeControl/tray.py:460
+#, python-format
+msgid "Performance changed to '%s'"
+msgstr "Siirryttiin tilaan \"%s\""
+
+#: ../EeeControl/tray.py:464
+msgid "Fan switched on"
+msgstr "Tuuletin otettiin käyttöön"
+
+#: ../EeeControl/tray.py:465
+msgid "Fan switched off"
+msgstr "Tuuletin poistettiin käytöstä"
+
+#: ../EeeControl/tray.py:504
+#, python-format
+msgid "Unmount failed with %s"
+msgstr "Liitospisteen %s irrottaminen epäonnistui"
+
+#: ../EeeControl/tray.py:535
+msgid "Temperature"
+msgstr "Lämpötila"
+
+#: ../EeeControl/tray.py:538
+msgid "Fan speed"
+msgstr "Tuulettimen nopeus"
+
+#: ../EeeControl/tray.py:541
+msgid "Fan RPM"
+msgstr "Tuulettimen kierrosluku"
+
+#: ../EeeControl/tray.py:578
+msgid "Preferences"
+msgstr "Asetukset"
+
+#: ../EeeControl/tray.py:592
+msgid "Hotkeys"
+msgstr "Pikanäppäimet"
+
+#: ../EeeControl/tray.py:593
+msgid "Notifications"
+msgstr "Ilmoitukset"
+
+#: ../EeeControl/tray.py:594
+msgid "Options"
+msgstr "Asetukset"
+
+#: ../EeeControl/tray.py:601
+msgid ""
+"Use one of the predefined keyword actions or enter a command to execute."
+msgstr ""
+"Käytä jotain oletusvaihtoehdoista tai määrittele suoritettava komento itse."
+
+#: ../EeeControl/tray.py:644
+msgid "Touchpad"
+msgstr "Kosketuslevy"
+
+#: ../EeeControl/tray.py:661
+msgid "Set performance to powersave on battery"
+msgstr "Aseta suorituskyky virransäästötilaan käytettäessä akkua"
+
+#: ../EeeControl/tray.py:663
+msgid "Smart fan control"
+msgstr "Älykäs tuulettimien ohjaus"
+
+
