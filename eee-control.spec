@@ -5,12 +5,12 @@
 Summary:	Eee PC hardware control and configuration
 Name:		eee-control
 Version:	0.9.6
-Release:	5
+Release:	7
 # Source code from git repository:
 # git clone git://greg.geekmind.org/eee-control.git && cd eee-control && git checkout 0.9.6 && \
 # cd .. && tar zcvf eee-control-0.9.6.tar.gz --exclude=.git eee-control
 Source0:	%{name}-%{version}.tar.gz
-Source1:	eee-control.init
+Source1:	eee-control.service
 Source2:	eee-control-fi.po
 Patch2:		eee-control-daemon_no-powerdev-group.patch
 Patch3:		eee-control_fix-setup.patch
@@ -80,8 +80,8 @@ convert -scale 16 data/eee-icon.png %{buildroot}%{_iconsdir}/hicolor/16x16/apps/
 %{__install} -D -m644 data/eee-icon-small.png %{buildroot}%{_iconsdir}/hicolor/24x24/apps/%{name}.png
 
 # Initfile
-%{__mkdir} -p %{buildroot}%{_initrddir}
-%{__install} -m 755 %{SOURCE1} %{buildroot}%{_initrddir}/%{name}
+%{__mkdir} -p %{buildroot}%{_unitdir}
+%{__install} -m 755 %{SOURCE1} %{buildroot}%{_unitdir}/%{name}.service
 
 # Install config file
 %{__mv} %{buildroot}%{_datadir}/%{name}/%{name}.conf %{buildroot}%{_sysconfdir}/%{name}.conf
@@ -101,7 +101,7 @@ convert -scale 16 data/eee-icon.png %{buildroot}%{_iconsdir}/hicolor/16x16/apps/
 %files -f %{name}.lang
 %defattr(-,root,root)
 %doc doc/NOTES doc/README doc/901-ACPI.txt
-%{_initrddir}/%{name}
+%{_unitdir}/%{name}.service
 %config(noreplace) %{_sysconfdir}/%{name}.conf
 %{_sysconfdir}/dbus-1/system.d/eee-control-daemon.conf
 %{_sysconfdir}/xdg/autostart/eee-control-tray.desktop
@@ -115,7 +115,7 @@ convert -scale 16 data/eee-icon.png %{buildroot}%{_iconsdir}/hicolor/16x16/apps/
 
 
 %changelog
-* Fri May 13 2011 Jani Välimaa <wally@mandriva.org> 0.9.6-4mdv2011.0
+* Fri May 13 2011 Jani Valimaa <wally@mandriva.org> 0.9.6-4mdv2011.0
 + Revision: 674331
 - add patch to workaround missing attach_to_status_icon in latest python-notify
 
@@ -123,19 +123,19 @@ convert -scale 16 data/eee-icon.png %{buildroot}%{_iconsdir}/hicolor/16x16/apps/
 + Revision: 648704
 - Added pygtk2.0 and python-gobject as requires
 
-* Sat Oct 30 2010 Jani Välimaa <wally@mandriva.org> 0.9.6-2mdv2011.0
+* Sat Oct 30 2010 Jani Valimaa <wally@mandriva.org> 0.9.6-2mdv2011.0
 + Revision: 590551
 - clean spec; drop support for old mdv releases
 - drop py_requires macro
 - rebuild for python 2.7
 
-* Sat Jul 10 2010 Jani Välimaa <wally@mandriva.org> 0.9.6-1mdv2011.0
+* Sat Jul 10 2010 Jani Valimaa <wally@mandriva.org> 0.9.6-1mdv2011.0
 + Revision: 550021
 - new version 0.9.6
 - drop P4, applied upstream
 - rediff P5
 
-* Wed Dec 30 2009 Jani Välimaa <wally@mandriva.org> 0.9.4-4mdv2010.1
+* Wed Dec 30 2009 Jani Valimaa <wally@mandriva.org> 0.9.4-4mdv2010.1
 + Revision: 483863
 - fix icons
 - install only one config file
@@ -143,17 +143,17 @@ convert -scale 16 data/eee-icon.png %{buildroot}%{_iconsdir}/hicolor/16x16/apps/
   o add brightness control file locations for other models than 901
   o don't fail if no brightness control file found
 
-* Sun Nov 08 2009 Jani Välimaa <wally@mandriva.org> 0.9.4-3mdv2010.1
+* Sun Nov 08 2009 Jani Valimaa <wally@mandriva.org> 0.9.4-3mdv2010.1
 + Revision: 462975
 - require xset (for turning display off with hotkeys)
 
-* Fri Sep 11 2009 Jani Välimaa <wally@mandriva.org> 0.9.4-2mdv2010.0
+* Fri Sep 11 2009 Jani Valimaa <wally@mandriva.org> 0.9.4-2mdv2010.0
 + Revision: 438175
 - Remove P0 & P1 as eee 901 freezes after Fn+F2
 - Add P5 (really add fi translation)
 - Split ath5k part from P0 to own patch P6
 
-* Mon Sep 07 2009 Jani Välimaa <wally@mandriva.org> 0.9.4-1mdv2010.0
+* Mon Sep 07 2009 Jani Valimaa <wally@mandriva.org> 0.9.4-1mdv2010.0
 + Revision: 432754
 - new version 0.9.4
 - P0: use ath5k instead of madwifi

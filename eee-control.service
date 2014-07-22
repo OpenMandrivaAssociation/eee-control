@@ -1,0 +1,11 @@
+[Unit]
+Description=Eee PC hardware control
+After=syslog.target
+
+[Service]
+Type=forking
+PIDFile=/var/run/eee-control-daemon.pid
+ExecStart=/usr/bin/eee-control-daemon
+
+[Install]
+WantedBy=multi-user.target
