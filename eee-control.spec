@@ -20,7 +20,7 @@ Patch7:		eee-control-brightness_fix.patch
 Patch8:		eee-control-0.9.6-pynotify.patch
 License:	MIT
 Group:		System/Configuration/Hardware
-URL:		http://greg.geekmind.org/eee-control/
+URL:		https://greg.geekmind.org/eee-control/
 # Asus Eee PC comes with x86_32 CPUs
 ExclusiveArch:	%ix86
 BuildRequires:	imagemagick
